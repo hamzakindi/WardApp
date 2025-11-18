@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "WardApp",
-    "slug": "WardApp",
+    "name": "wardapp",
+    "slug": "wardapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "wardapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "jsEngine": "hermes",
     "ios": {
       "supportsTablet": true
     },

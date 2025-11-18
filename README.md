@@ -5,46 +5,58 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 ## Get started
 
 1. Install dependencies
-
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Create a .env file (already ignored by .gitignore)
+   Windows (PowerShell):
+   ```powershell
+   New-Item .env -ItemType File -Force
+   ```
+   Windows (cmd):
+   ```cmd
+   type NUL > .env
+   ```
+   macOS/Linux:
+   ```bash
+   touch .env
+   ```
 
+   Add values:
+   ```
+   MSAL_CLIENT_ID=YOUR_CLIENT_ID
+   MSAL_REDIRECT_URI=wardapp://auth
+   MSAL_AUTHORITY=https://login.microsoftonline.com/common
+   ```
+
+   Notes:
+   - react-native-config loads .env by default at native build time.
+   - If you change .env, rebuild your development client: `npx expo run:android` or `npx expo run:ios`.
+   - Ensure the redirect URI is added to your Azure App Registration and that the app scheme matches in app.json (e.g., "scheme": "wardapp").
+
+3. Start the app
    ```bash
    npx expo start
    ```
+   - Use a development build for native modules: `npx expo run:android` / `npx expo run:ios` (first time and whenever .env changes).
 
-In the output, you'll find options to open the app in a
+You can run in:
+- development build
+- Android emulator
+- iOS simulator
+- Expo Go (env vars from react-native-config require a development build)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Edit files inside the `app` directory (file-based routing).
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+## Reset
 ```bash
 npm run reset-project
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Moves starter code to `app-example` and creates a blank `app` directory.
 
 ## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo documentation](https://docs.expo.dev/)
+- [Tutorial](https://docs.expo.dev/tutorial/introduction/)
+- [Expo on GitHub](https://github.com/expo/expo)
+- [Discord](https://chat.expo.dev)
